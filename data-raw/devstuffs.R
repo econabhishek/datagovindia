@@ -11,8 +11,8 @@ my_desc <- description$new("!new")
 my_desc$set("Package", "datagovin")
 
 #Set your name
-my_desc$set("Authors@R", "person('Abhishek', 'Arora', email = 'abhishek.arora1996@gmail.com', role = c('cre', 'aut'))",
-            "person('Aditya', 'Chhabra', email = 'aditya0chhabra@gmail.com', role = c('cre', 'aut'))")
+my_desc$set("Authors@R", c("person('Abhishek', 'Arora', email = 'abhishek.arora1996@gmail.com', role = c('cre', 'aut'))",
+            "person('Aditya', 'Chhabra', email = 'aditya0chhabra@gmail.com', role = c('cre', 'aut'))"))
 
 # Remove some author fields
 my_desc$del("Maintainer")
@@ -30,8 +30,8 @@ my_desc$set(Description = "This wrapper allows the user to communicate with more
             the ID by using the API discovery functionalities, the wrapper allows one to converse
             with the API using a consistent template")
 # The urls
-my_desc$set("URL", "http://this")
-my_desc$set("BugReports", "http://that")
+my_desc$set("URL", "https://github.com/econabhishek/datagovindia")
+my_desc$set("BugReports", "https://github.com/econabhishek/datagovindia/issues")
 # Save everyting
 my_desc$write(file = "DESCRIPTION")
 

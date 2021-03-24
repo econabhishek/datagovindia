@@ -1,17 +1,23 @@
-#####Key functions
 
+#' importFrom dplyr "%>%"
 ###Set option function
-library(httr)
-library(plyr)
-library(dplyr)
-library(curl)
-library(stringr)
-
-
-##check internet connection
 
 
 
+
+#' Registering/Validating User API key
+#'
+#'Obtain an API key from data.gov.in by registering on the platform. You can find
+#'it on your "My Account page after logging in.
+#'
+#' @param user_api_key API Key obtained from data.gov.in
+#' @param show_key Whether to API show key in messages
+#'
+#' @return Success/Faliure of API key validation
+#' @export
+#'
+#' @examples
+#' @add register_api_key(api_key=xxx,show_key=FALSE)
 
 register_api_key<-function(user_api_key,show_key=TRUE){
 
@@ -49,14 +55,25 @@ register_api_key<-function(user_api_key,show_key=TRUE){
 
 ########################################API Discovery and Info
 
-###list of unique sectors
-get_list_of_sectors<-function(){
+
+#' Get a list of unique organization types
+#'
+#'These include whether a Central/State organization releases the underlying data.
+#'This will be helpful while querying for the right API
+#'
+#'
+#' @return character vector of organization types
+#' @export
+#'
+#' @examples
+#' @add get_list_of_org_types()
+get_list_of_org_types<-function(){
 
   if(is.null(getOption("api_info_data"))){
     options(api_info_data=readRDS("text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
-  api_details$sector %>%
-    str_split(.,"\\|") %>%
+  api_details$org_type %>%
+    stringr::str_split(.,"\\|") %>%
     unlist %>%
     unique
 
@@ -64,9 +81,18 @@ get_list_of_sectors<-function(){
 }
 
 
+#' Get a list of unique organizations
+#'
+#'These include which ministry releases the underlying data.
+#'This will be helpful while querying for the right API.
+#' Get a list of unique sectors
+#' @return character vector of organization
+#' @export
+#'
+#' @examples
+#' @add get_list_of_organizations()
 
-###list of unique organisations
-get_list_of_organisations<-function()  {
+get_list_of_organizations<-function()  {
 
   if(is.null(getOption("api_info_data"))){
     options(api_info_data=readRDS("text_info_api_df.rds"))}
@@ -74,13 +100,21 @@ get_list_of_organisations<-function()  {
 
   api_details$org %>%
   unique %>%
-  str_split(.,"\\|") %>%
+  stringr::str_split(.,"\\|") %>%
   unlist %>%
   unique
 }
 
+#' Get a list of unique sectors
+#'
+#'These include which sector the underlying data belongs to.
+#'This will be helpful while querying for the right API.
+#' @return character vector of sectors
+#' @export
+#'
+#' @examples
+#' @add get_list_of_sectors()
 
-###List of unique sectors
 get_list_of_sectors<-function()  {
 
   if(is.null(getOption("api_info_data"))){
@@ -90,14 +124,22 @@ get_list_of_sectors<-function()  {
 
   api_details$sector %>%
   unique %>%
-  str_split(.,"\\|") %>%
+  stringr::str_split(.,"\\|") %>%
   unlist %>%
   unique
 
 }
 
+#' Get a list of unique data sources (website names)
+#'
+#'These include which websites host the underlying data.
+#'This will be helpful while querying for the right API.
+#' @return character vector of sectors
+#' @export
+#'
+#' @examples
+#' @add get_list_of_sources()
 
-###List of unique sources
 get_list_of_sources<-function()  {
 
   if(is.null(getOption("api_info_data"))){
@@ -108,14 +150,22 @@ get_list_of_sources<-function()  {
 
   api_details$source %>%
   unique %>%
-  str_split(.,"\\|") %>%
+  stringr::str_split(.,"\\|") %>%
   unlist %>%
   unique
 
 }
 
 
-##search by title
+#' Search API by title
+#'
+#' @param title_contains string to match in the title of the API (case insensitive)
+#'
+#' @return API details filtered by titles that match the string provided
+#' @export
+#'
+#' @examples
+#' @add search_api_by_title(title_contains="Air Quality")
 search_api_by_title<-function(title_contains=""){
 
   if(is.null(getOption("api_info_data"))){
@@ -123,70 +173,130 @@ search_api_by_title<-function(title_contains=""){
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(title_contains,title))
+    filter(.,grepl(title_contains,title,ignore.case = T))
   return(filtered_details)
 }
 
+#' Search API by description
+#'
+#' @param description_contains string to match in the description of the API (case insensitive)
+#'
+#' @return API details filtered by descriptions that match the string provided
+#' @export
+#'
+#' @examples
+#' @add search_api_by_description(description_contains="Air Quality")
 
-##search by descriptions
 search_api_by_description<- function(description_contains=""){
   if(is.null(getOption("api_info_data"))){
     options(api_info_data=readRDS("text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(description_contains,description))
+    filter(.,grepl(description_contains,description,ignore.case = T))
   return(filtered_details)
 }
-##search by org_type
+
+
+#' Search API by organization type
+#'
+#' @param org_type_contains string to match in the organization type of the API (case insensitive)
+#'
+#' @return API details filtered by organization types that match the string provided
+#' @export
+#'
+#' @examples
+#' @add get_list_of_org_types()
+#' @add search_api_by_org_type(org_type_contains="Central")
+
 search_api_by_org_type<- function(org_type_contains=""){
   if(is.null(getOption("api_info_data"))){
     options(api_info_data=readRDS("text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(org_type_contains,org_type))
+    filter(.,grepl(org_type_contains,org_type,ignore.case = T))
   return(filtered_details)
 }
 
 
-
-##search by org
-search_api_by_organisation<- function(organisation_name_contains=""){
+#' Search API by organization name
+#'
+#' @param organization_name_contains string to match in the organization type of the API (case insensitive)
+#'
+#' @return API details filtered by organization names (Ministries) that match the string provided
+#' @export
+#'
+#' @examples
+#' @add get_list_of_organizations()
+#' @add search_api_by_organization(organization_name_contains="Agriculture")
+#'
+search_api_by_organization<- function(organization_name_contains=""){
   if(is.null(getOption("api_info_data"))){
     options(api_info_data=readRDS("text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(organisation_name_contains,org))
+    filter(.,grepl(organization_name_contains,org,ignore.case = T))
   return(filtered_details)
 }
 
 
-##search by sector
+#' Search API by Sector
+#'
+#' @param sector_name_contains string to match in the organization type of the API (case insensitive)
+#'
+#' @return API details filtered by Sectors that match the string provided
+#' @export
+#'
+#' @examples
+#' @add get_list_of_sectors()
+#' @add search_api_by_organization(sector_name_contains="Consumer")
+
 search_api_by_sector<- function(sector_name_contains=""){
   if(is.null(getOption("api_info_data"))){
     options(api_info_data=readRDS("text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(sector_name_contains,sector))
+    filter(.,grepl(sector_name_contains,sector,ignore.case = T))
   return(filtered_details)
 }
 
-#search by source
-search_api_by_sector<- function(source_name_contains=""){
+#' Search API by Data Source
+#'
+#' @param source_name_contains string to match in the organization type of the API (case insensitive)
+#'
+#' @return API details filtered by Sectors that match the string provided
+#' @export
+#'
+#' @examples
+#' @add get_list_of_sources()
+#' @add search_api_by_source(sector_name_contains="gov")
+
+search_api_by_source<- function(source_name_contains=""){
   if(is.null(getOption("api_info_data"))){
     options(api_info_data=readRDS("text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(source_name_contains,source))
+    filter(.,grepl(source_name_contains,source,ignore.case = T))
   return(filtered_details)
 }
 
 
-###get api info by index of the api
+#' Get information about the API using the API index name
+#'
+#' @param api_index API index name (string) you found using the search functions. You can
+#' also get these from data.gov.in from a specific API page. In the request url,
+#' it is followed by /resource/xxxxxxxx
+#' For getting the relevant fields in the api use get_api_fields
+#'
+#' @return Data frame with 1 row , API that matches API ID
+#' @export
+#'
+#' @examples
+#' @add get_api_info("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
 get_api_info<-function(api_index) {
 
   if(is.null(getOption("api_info_data"))){
@@ -197,22 +307,23 @@ get_api_info<-function(api_index) {
 
 }
 
-##Get API details
-get_api_info<-function(api_index) {
-
-  if(is.null(getOption("api_info_data"))){
-    options(api_info_data=readRDS("text_info_api_df.rds"))}
-  api_details<-getOption("api_info_data")
-  api_details %>%
-    filter(.,index_name==api_index)
-
-}
 
 
-
-#####Get fields of the API
-##Fields have triples of c("id","name","type")
-##Get API details
+#' Get fields contained in the response of the API using the API index name
+#'
+#' @param api_index API index name you found using the search functions. You can
+#' also get these from data.gov.in from a specific API page. In the request url,
+#' it is followed by /resource/xxxxxxxx
+#' For getting the relevant fields in the api use get_api_fields
+#'
+#' @return Data frame with 1 row , API that matches API ID ;
+#'  contains id,name and type of the field - name and type are usually the same
+#' @export
+#'
+#' @examples
+#' @add get_api_fields("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
+#'
+#'
 get_api_fields<-function(api_index) {
 
   if(is.null(getOption("api_fields_data"))){
@@ -222,7 +333,7 @@ get_api_fields<-function(api_index) {
     df_api_fields<-api_fields %>%
     filter(.,index_name==api_index) %>%
     .[1,2] %>%
-    str_split(.,"\\|",simplify = F) %>%
+    stringr::str_split(.,"\\|",simplify = F) %>%
     .[[1]] %>%
     matrix(.,ncol = 3,byrow = T) %>%
     data.frame()
@@ -237,8 +348,28 @@ get_api_fields<-function(api_index) {
 
 
 
-###Call API for data using resource index
 
+#' Get data from API Index Name
+#'
+#' Using the API index name you got from the API Search/Discovery functions or
+#' from the API list available on data.gov.in, get the data in a convenient way
+#' parsed into a an R-friendly data frame.
+#'
+#' @param api_index Index name of the API
+#' @param results_per_req Results to get per request ; "all" would get all the results
+#' @param filter_by A named character vector of field name - value(s) pairs; can take multiple fields
+#' as well as multiple comma separated values
+#' @param field_select A character vector of fields required in the final data frame
+#' @param sort_by A character vector of fields to sort by in the final data frame
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' @add search_api_by_title(title_contains="Air Quality) #Get index name from here
+#' @add get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
+#' @add get_api_data(api_index='3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69',results_per_req="all",
+#' filter_by=c(state="Punjab,Haryana",district="Amritsar,Ludhiana"),field_select=c('state','district','city'),sort_by=c('state','district','city'))
 get_api_data<-function(api_index, results_per_req="all",
                        filter_by=c(),field_select=c(),sort_by=c()){
 
@@ -246,8 +377,8 @@ get_api_data<-function(api_index, results_per_req="all",
   ##first a function that scrubs the API key if the show key option is false
   scrub_key<-function (string, with = "xxx")
   { if(getOption("datagovin")$key_shown==TRUE) {return(string)} else {}
-    str_replace_all(string, "(key|client|signature)=(\\w+)",
-                    str_c("\\1=", with))
+    stringr::str_replace_all(string, "(key|client|signature)=(\\w+)",
+                    stringr::str_c("\\1=", with))
   }
 
 
@@ -260,7 +391,7 @@ get_api_data<-function(api_index, results_per_req="all",
 
 
   filter_matrix <- filter_by %>%
-    str_split(.,",",simplify = T) %>%
+    stringr::str_split(.,",",simplify = T) %>%
     t() %>%
     data.frame()
 
@@ -321,7 +452,7 @@ get_api_data<-function(api_index, results_per_req="all",
           plyr::rbind.fill(fill=T)
       } else message("bad input parameters; choose again")
 
-      fill_data<-bind_rows(fill_data,api_data)
+      fill_data<-dplyr::bind_rows(fill_data,api_data)
       Sys.sleep(1)
       message("gave the API a rest")
       if((length(res$records)==0) | (results_per_req<req_cap)) break
@@ -329,7 +460,7 @@ get_api_data<-function(api_index, results_per_req="all",
       i=i+1
 
     }
-    full_data<-bind_rows(full_data,fill_data)
+    full_data<-dplyr::bind_rows(full_data,fill_data)
 
   }
   return(full_data)
