@@ -1,6 +1,5 @@
 
 #' importFrom dplyr "%>%"
-###Set option function
 
 
 
@@ -17,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' @add register_api_key(api_key=xxx,show_key=FALSE)
+#' register_api_key(api_key=xxx,show_key=FALSE)
 
 register_api_key<-function(user_api_key,show_key=TRUE){
 
@@ -66,7 +65,7 @@ register_api_key<-function(user_api_key,show_key=TRUE){
 #' @export
 #'
 #' @examples
-#' @add get_list_of_org_types()
+#'   get_list_of_org_types()
 get_list_of_org_types<-function(){
 
   if(is.null(getOption("api_info_data"))){
@@ -90,7 +89,7 @@ get_list_of_org_types<-function(){
 #' @export
 #'
 #' @examples
-#' @add get_list_of_organizations()
+#'   get_list_of_organizations()
 
 get_list_of_organizations<-function()  {
 
@@ -113,7 +112,7 @@ get_list_of_organizations<-function()  {
 #' @export
 #'
 #' @examples
-#' @add get_list_of_sectors()
+#'   get_list_of_sectors()
 
 get_list_of_sectors<-function()  {
 
@@ -138,7 +137,7 @@ get_list_of_sectors<-function()  {
 #' @export
 #'
 #' @examples
-#' @add get_list_of_sources()
+#'   get_list_of_sources()
 
 get_list_of_sources<-function()  {
 
@@ -165,7 +164,7 @@ get_list_of_sources<-function()  {
 #' @export
 #'
 #' @examples
-#' @add search_api_by_title(title_contains="Air Quality")
+#'   search_api_by_title(title_contains="Air Quality")
 search_api_by_title<-function(title_contains=""){
 
   if(is.null(getOption("api_info_data"))){
@@ -185,7 +184,7 @@ search_api_by_title<-function(title_contains=""){
 #' @export
 #'
 #' @examples
-#' @add search_api_by_description(description_contains="Air Quality")
+#'   search_api_by_description(description_contains="Air Quality")
 
 search_api_by_description<- function(description_contains=""){
   if(is.null(getOption("api_info_data"))){
@@ -206,8 +205,8 @@ search_api_by_description<- function(description_contains=""){
 #' @export
 #'
 #' @examples
-#' @add get_list_of_org_types()
-#' @add search_api_by_org_type(org_type_contains="Central")
+#'   get_list_of_org_types()
+#'   search_api_by_org_type(org_type_contains="Central")
 
 search_api_by_org_type<- function(org_type_contains=""){
   if(is.null(getOption("api_info_data"))){
@@ -228,8 +227,8 @@ search_api_by_org_type<- function(org_type_contains=""){
 #' @export
 #'
 #' @examples
-#' @add get_list_of_organizations()
-#' @add search_api_by_organization(organization_name_contains="Agriculture")
+#'   get_list_of_organizations()
+#'   search_api_by_organization(organization_name_contains="Agriculture")
 #'
 search_api_by_organization<- function(organization_name_contains=""){
   if(is.null(getOption("api_info_data"))){
@@ -250,8 +249,8 @@ search_api_by_organization<- function(organization_name_contains=""){
 #' @export
 #'
 #' @examples
-#' @add get_list_of_sectors()
-#' @add search_api_by_organization(sector_name_contains="Consumer")
+#'   get_list_of_sectors()
+#'   search_api_by_organization(sector_name_contains="Consumer")
 
 search_api_by_sector<- function(sector_name_contains=""){
   if(is.null(getOption("api_info_data"))){
@@ -271,8 +270,8 @@ search_api_by_sector<- function(sector_name_contains=""){
 #' @export
 #'
 #' @examples
-#' @add get_list_of_sources()
-#' @add search_api_by_source(sector_name_contains="gov")
+#'   get_list_of_sources()
+#'   search_api_by_source(sector_name_contains="gov")
 
 search_api_by_source<- function(source_name_contains=""){
   if(is.null(getOption("api_info_data"))){
@@ -296,11 +295,11 @@ search_api_by_source<- function(source_name_contains=""){
 #' @export
 #'
 #' @examples
-#' @add get_api_info("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
+#'   get_api_info("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
 get_api_info<-function(api_index) {
 
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=readRDS("text_info_api_df.rds"))}
+    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
   api_details %>%
     filter(.,index_name==api_index)
@@ -321,13 +320,13 @@ get_api_info<-function(api_index) {
 #' @export
 #'
 #' @examples
-#' @add get_api_fields("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
+#'   get_api_fields("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
 #'
 #'
 get_api_fields<-function(api_index) {
 
   if(is.null(getOption("api_fields_data"))){
-    options(api_fields_data=readRDS("field_api_df.rds"))}
+    options(api_fields_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/field_api_df.rds"))}
     api_fields<-getOption("api_fields_data")
 
     df_api_fields<-api_fields %>%
@@ -343,10 +342,6 @@ get_api_fields<-function(api_index) {
   return(df_api_fields)
 
 }
-
-
-
-
 
 
 #' Get data from API Index Name
@@ -366,10 +361,9 @@ get_api_fields<-function(api_index) {
 #' @export
 #'
 #' @examples
-#' @add search_api_by_title(title_contains="Air Quality) #Get index name from here
-#' @add get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
-#' @add get_api_data(api_index='3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69',results_per_req="all",
-#' filter_by=c(state="Punjab,Haryana",district="Amritsar,Ludhiana"),field_select=c('state','district','city'),sort_by=c('state','district','city'))
+#' search_api_by_title(title_contains="Air Quality) #Get index name from here
+#' get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
+#' get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",results_per_req="all",filter_by=c(state="Punjab,Haryana",district="Amritsar,Ludhiana"),field_select=c('state','district','city'),sort_by=c('state','district','city'))
 get_api_data<-function(api_index, results_per_req="all",
                        filter_by=c(),field_select=c(),sort_by=c()){
 

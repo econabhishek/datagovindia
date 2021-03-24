@@ -11,8 +11,7 @@ my_desc <- description$new("!new")
 my_desc$set("Package", "datagovin")
 
 #Set your name
-my_desc$set("Authors@R", c("person('Abhishek', 'Arora', email = 'abhishek.arora1996@gmail.com', role = c('cre', 'aut'))",
-            "person('Aditya', 'Chhabra', email = 'aditya0chhabra@gmail.com', role = c('cre', 'aut'))"))
+my_desc$set("Authors@R", c("person('Abhishek', 'Arora', email = 'abhishek.arora1996@gmail.com', role = c('cre', 'aut'))"))
 
 # Remove some author fields
 my_desc$del("Maintainer")
@@ -23,8 +22,7 @@ my_desc$set_version("0.0.0.9000")
 # The title of your package
 my_desc$set(Title = "Data.gov.in API Wrapper")
 # The description of your package
-my_desc$set(Description = "This wrapper allows the user to communicate with more than 80,000
-            APIs posted on the open data portal data.gov.in - open data platform of the government of India.
+my_desc$set(Description = "This wrapper allows the user to communicate with more than 80,000 APIs posted on the open data portal data.gov.in - open data platform of the government of India.
             The pacakge allows you to search for the API required through the universe of
             the APIs with a better interface than the one website provides. Once a user has
             the ID by using the API discovery functionalities, the wrapper allows one to converse

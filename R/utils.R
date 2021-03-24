@@ -6,7 +6,8 @@
 #' @return Message
 #' @export
 #'
-#' @examples check_internet_connection()
+#' @examples
+#' check_internet_connection()
 check_internet_connection<-function() {
 ##function to stop without error message
 stop_quietly <- function() {
@@ -23,9 +24,17 @@ stop_quietly <- function() {
 
 ##import rds file from github
 
+#' Utility to import RDS files from Github
+#'
+#' @param url url of the raw girhub file
+#'
+#' @return
+#' @export file (data frame)
+#'
+#' @examples
+#' read_rds_from_github(url)
 read_rds_from_github<-function(url){
   data <- readRDS(url(url, method="libcurl"))
   return(data)
 }
 
-read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/field_api_df.rds")
