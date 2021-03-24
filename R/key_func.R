@@ -358,7 +358,7 @@ get_api_fields<-function(api_index) {
 #' @export
 #'
 #' @examples
-#' search_api_by_title(title_contains="Air Quality) #Get index name from here
+#' search_api_by_title(title_contains="Air Quality") #Get index name from here
 #' get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
 #' get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",results_per_req="all",filter_by=c(state="Punjab,Haryana",district="Amritsar,Ludhiana"),field_select=c('state','district','city'),sort_by=c('state','district','city'))
 get_api_data<-function(api_index, results_per_req="all",
