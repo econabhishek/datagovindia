@@ -42,6 +42,7 @@ use_news_md()
 # Get the dependencies
 use_package("httr")
 use_package("dplyr")
+use_package("magrittr")
 use_package("stringr")
 use_package("plyr")
 use_package("curl")

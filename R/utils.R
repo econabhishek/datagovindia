@@ -28,8 +28,8 @@ stop_quietly <- function() {
 #'
 #' @param url url of the raw girhub file
 #'
-#' @return
-#' @export file (data frame)
+#' @return file (data frame)
+#' @export
 #'
 #' @examples
 #' read_rds_from_github(url)

@@ -1,8 +1,5 @@
 
-#' importFrom dplyr "%>%"
-
-
-
+#' importFrom magrittr "%>%"
 
 #' Registering/Validating User API key
 #'
@@ -172,7 +169,7 @@ search_api_by_title<-function(title_contains=""){
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(title_contains,title,ignore.case = T))
+    dplyr::filter(.,grepl(title_contains,title,ignore.case = T))
   return(filtered_details)
 }
 
@@ -192,7 +189,7 @@ search_api_by_description<- function(description_contains=""){
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(description_contains,description,ignore.case = T))
+    dplyr::filter(.,grepl(description_contains,description,ignore.case = T))
   return(filtered_details)
 }
 
@@ -214,7 +211,7 @@ search_api_by_org_type<- function(org_type_contains=""){
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(org_type_contains,org_type,ignore.case = T))
+    dplyr::filter(.,grepl(org_type_contains,org_type,ignore.case = T))
   return(filtered_details)
 }
 
@@ -236,7 +233,7 @@ search_api_by_organization<- function(organization_name_contains=""){
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(organization_name_contains,org,ignore.case = T))
+    dplyr::filter(.,grepl(organization_name_contains,org,ignore.case = T))
   return(filtered_details)
 }
 
@@ -258,7 +255,7 @@ search_api_by_sector<- function(sector_name_contains=""){
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(sector_name_contains,sector,ignore.case = T))
+    dplyr::filter(.,grepl(sector_name_contains,sector,ignore.case = T))
   return(filtered_details)
 }
 
@@ -279,7 +276,7 @@ search_api_by_source<- function(source_name_contains=""){
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
-    filter(.,grepl(source_name_contains,source,ignore.case = T))
+    dplyr::filter(.,grepl(source_name_contains,source,ignore.case = T))
   return(filtered_details)
 }
 
@@ -302,7 +299,7 @@ get_api_info<-function(api_index) {
     options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/text_info_api_df.rds"))}
   api_details<-getOption("api_info_data")
   api_details %>%
-    filter(.,index_name==api_index)
+    dplyr::filter(.,index_name==api_index)
 
 }
 
@@ -330,7 +327,7 @@ get_api_fields<-function(api_index) {
     api_fields<-getOption("api_fields_data")
 
     df_api_fields<-api_fields %>%
-    filter(.,index_name==api_index) %>%
+      dplyr::filter(.,index_name==api_index) %>%
     .[1,2] %>%
     stringr::str_split(.,"\\|",simplify = F) %>%
     .[[1]] %>%
