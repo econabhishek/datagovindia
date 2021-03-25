@@ -15,7 +15,7 @@ get_api_data(
 \arguments{
 \item{api_index}{Index name of the API}
 
-\item{results_per_req}{Results to get per request ; "all" would get all the results}
+\item{results_per_req}{Integer number of results to get per request ; "all" would get all the results}
 
 \item{filter_by}{A named character vector of field name - value(s) pairs; can take multiple fields
 as well as multiple comma separated values}
@@ -25,7 +25,7 @@ as well as multiple comma separated values}
 \item{sort_by}{A character vector of fields to sort by in the final data frame}
 }
 \value{
-
+data.frame
 }
 \description{
 Using the API index name you got from the API Search/Discovery functions or
@@ -33,9 +33,12 @@ from the API list available on data.gov.in, get the data in a convenient way
 parsed into a an R-friendly data frame.
 }
 \examples{
+register_api_key("579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b")
 search_api_by_title(title_contains="Air Quality") #Get index name from here
 get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
-get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
-results_per_req="all",filter_by=c(state="Punjab,Haryana",district="Amritsar,Ludhiana"),
-field_select=c('state','district','city'),sort_by=c('state','district','city'))
+request_data<-get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
+     results_per_req=10,filter_by=c(state="Punjab,Haryana",
+     district="Amritsar,Ludhiana"),
+     field_select=c('state','district','city'),
+     sort_by=c('state','district','city'))
 }

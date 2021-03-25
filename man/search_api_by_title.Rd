@@ -10,7 +10,7 @@ search_api_by_title(title_contains = "")
 \item{title_contains}{string to match in the title of the API (case insensitive)}
 }
 \value{
-API details filtered by titles that match the string provided
+data.frame of API details filtered by titles that match the string provided
 }
 \description{
 Search API by title

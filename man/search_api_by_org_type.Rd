@@ -10,7 +10,7 @@ search_api_by_org_type(org_type_contains = "")
 \item{org_type_contains}{string to match in the organization type of the API (case insensitive)}
 }
 \value{
-API details filtered by organization types that match the string provided
+data.frame of API details filtered by organization types that match the string provided
 }
 \description{
 Search API by organization type

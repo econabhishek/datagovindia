@@ -13,7 +13,7 @@ it is followed by /resource/xxxxxxxx
 For getting the relevant fields in the api use get_api_fields}
 }
 \value{
-Data frame with 1 row , API that matches API ID ;
+data.frame with 1 row , API that matches API ID ;
  contains id,name and type of the field - name and type are usually the same
 }
 \description{

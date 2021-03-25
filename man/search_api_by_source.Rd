@@ -10,7 +10,7 @@ search_api_by_source(source_name_contains = "")
 \item{source_name_contains}{string to match in the organization type of the API (case insensitive)}
 }
 \value{
-API details filtered by Sectors that match the string provided
+data.frame of API details filtered by Sectors that match the string provided
 }
 \description{
 Search API by Data Source
