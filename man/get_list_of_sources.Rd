@@ -14,5 +14,5 @@ These include which websites host the underlying data.
 This will be helpful while querying for the right API.
 }
 \examples{
-  get_list_of_sources()
+get_list_of_sources()
 }

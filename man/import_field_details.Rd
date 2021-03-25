@@ -7,11 +7,11 @@
 import_field_details()
 }
 \value{
-file (data frame)
+file (data.frame)
 }
 \description{
 Utility to import updated RDS files with API field details from Github
 }
 \examples{
-import_field_details()
+api_field_details<-import_field_details()
 }

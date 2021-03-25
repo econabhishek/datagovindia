@@ -14,5 +14,5 @@ These include which sector the underlying data belongs to.
 This will be helpful while querying for the right API.
 }
 \examples{
-  get_list_of_sectors()
+get_list_of_sectors()
 }

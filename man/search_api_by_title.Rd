@@ -16,5 +16,5 @@ data.frame of API details filtered by titles that match the string provided
 Search API by title
 }
 \examples{
-  search_api_by_title(title_contains="Air Quality")
+filtered_api<-search_api_by_title(title_contains="Air Quality")
 }

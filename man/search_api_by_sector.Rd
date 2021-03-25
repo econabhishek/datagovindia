@@ -16,6 +16,6 @@ data.frame of API details filtered by Sectors that match the string provided
 Search API by Sector
 }
 \examples{
-  get_list_of_sectors()
-  search_api_by_organization(sector_name_contains="Consumer")
+get_list_of_sectors()
+filtered_api<-search_api_by_sector(sector_name_contains="Consumer")
 }

@@ -19,5 +19,5 @@ data.frame with 1 row , API that matches API ID
 Get information about the API using the API index name
 }
 \examples{
-  get_api_info("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
+get_api_info("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
 }

@@ -15,5 +15,5 @@ This will be helpful while querying for the right API.
 Get a list of unique sectors
 }
 \examples{
-  get_list_of_organizations()
+get_list_of_organizations()
 }

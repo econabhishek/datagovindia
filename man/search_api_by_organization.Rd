@@ -17,6 +17,6 @@ Search API by organization name
 }
 \examples{
   get_list_of_organizations()
-  search_api_by_organization(organization_name_contains="Agriculture")
+filtered_api<-search_api_by_organization(organization_name_contains="Agriculture")
 
 }
