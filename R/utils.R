@@ -17,7 +17,7 @@ stop_quietly <- function() {
 }
 
 
-  if(curl::has_internet()) {} else {message("Check your internet connection!")
+  if(curl::has_internet()) {message("Connected to the internet")} else {message("Check your internet connection!")
     stop_quietly()}
 }
 
