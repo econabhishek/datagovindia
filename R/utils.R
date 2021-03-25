@@ -37,3 +37,36 @@ read_rds_from_github<-function(url){
   return(data)
 }
 
+
+##Load API Details data frame
+
+#' Utility to import RDS files with API details from Github
+#'
+#'
+#' @return file (data frame)
+#' @export
+#'
+#' @examples
+#' import_api_details()
+import_api_details<-function(){
+  data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/inst/extdata/text_info_api_df.rds")
+  return(data)
+}
+
+
+
+
+#' Utility to import updated RDS files with API field details from Github
+#'
+#'
+#' @return file (data frame)
+#' @export
+#'
+#' @examples
+#' import_field_details()
+import_field_details<-function(){
+  data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/inst/extdata/field_api_df.rds")
+  return(data)
+}
+
+

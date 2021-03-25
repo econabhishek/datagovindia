@@ -66,7 +66,7 @@ register_api_key<-function(user_api_key,show_key=TRUE){
 get_list_of_org_types<-function(){
 
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
   api_details$org_type %>%
     stringr::str_split(.,"\\|") %>%
@@ -91,7 +91,7 @@ get_list_of_org_types<-function(){
 get_list_of_organizations<-function()  {
 
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
   api_details$org %>%
@@ -114,7 +114,7 @@ get_list_of_organizations<-function()  {
 get_list_of_sectors<-function()  {
 
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
 
@@ -139,7 +139,7 @@ get_list_of_sectors<-function()  {
 get_list_of_sources<-function()  {
 
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
 
@@ -165,7 +165,7 @@ get_list_of_sources<-function()  {
 search_api_by_title<-function(title_contains=""){
 
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
@@ -185,7 +185,7 @@ search_api_by_title<-function(title_contains=""){
 
 search_api_by_description<- function(description_contains=""){
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
@@ -207,7 +207,7 @@ search_api_by_description<- function(description_contains=""){
 
 search_api_by_org_type<- function(org_type_contains=""){
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
@@ -229,7 +229,7 @@ search_api_by_org_type<- function(org_type_contains=""){
 #'
 search_api_by_organization<- function(organization_name_contains=""){
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
@@ -251,7 +251,7 @@ search_api_by_organization<- function(organization_name_contains=""){
 
 search_api_by_sector<- function(sector_name_contains=""){
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
@@ -272,7 +272,7 @@ search_api_by_sector<- function(sector_name_contains=""){
 
 search_api_by_source<- function(source_name_contains=""){
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
 
   filtered_details<-api_details %>%
@@ -296,7 +296,7 @@ search_api_by_source<- function(source_name_contains=""){
 get_api_info<-function(api_index) {
 
   if(is.null(getOption("api_info_data"))){
-    options(api_info_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/text_info_api_df.rds"))}
+    options(api_info_data=import_api_details())}
   api_details<-getOption("api_info_data")
   api_details %>%
     dplyr::filter(.,index_name==api_index)
@@ -323,7 +323,7 @@ get_api_info<-function(api_index) {
 get_api_fields<-function(api_index) {
 
   if(is.null(getOption("api_fields_data"))){
-    options(api_fields_data=read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/Data/field_api_df.rds"))}
+    options(api_fields_data=import_field_details())}
     api_fields<-getOption("api_fields_data")
 
     df_api_fields<-api_fields %>%
