@@ -16,5 +16,7 @@ file (data frame)
 Utility to import RDS files from Github
 }
 \examples{
+\dontrun{
 read_rds_from_github(url)
+}
 }

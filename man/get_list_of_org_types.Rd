@@ -14,5 +14,5 @@ These include whether a Central/State organization releases the underlying data.
 This will be helpful while querying for the right API
 }
 \examples{
-  get_list_of_org_types()
+get_list_of_org_types()
 }

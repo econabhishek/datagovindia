@@ -16,6 +16,6 @@ data.frame of API details filtered by Sectors that match the string provided
 Search API by Data Source
 }
 \examples{
-  get_list_of_sources()
-  search_api_by_source(sector_name_contains="gov")
+get_list_of_sources()
+filtered_api<-search_api_by_source(source_name_contains="gov")
 }

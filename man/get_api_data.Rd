@@ -33,7 +33,7 @@ from the API list available on data.gov.in, get the data in a convenient way
 parsed into a an R-friendly data frame.
 }
 \examples{
-register_api_key("579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b")
+\dontrun{register_api_key("api_key")
 search_api_by_title(title_contains="Air Quality") #Get index name from here
 get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
 request_data<-get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
@@ -41,4 +41,5 @@ request_data<-get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
      district="Amritsar,Ludhiana"),
      field_select=c('state','district','city'),
      sort_by=c('state','district','city'))
+}
 }

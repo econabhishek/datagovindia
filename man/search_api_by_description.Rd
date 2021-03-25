@@ -16,5 +16,5 @@ data.frame of API details filtered by descriptions that match the string provide
 Search API by description
 }
 \examples{
-  search_api_by_description(description_contains="Air Quality")
+filtered_api<-search_api_by_description(description_contains="Air Quality")
 }

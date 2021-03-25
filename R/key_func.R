@@ -1,5 +1,4 @@
 
-#' importFrom magrittr "%>%"
 
 #' Registering/Validating User API key
 #'
@@ -13,7 +12,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' register_api_key(api_key=xxx,show_key=FALSE)
+#' }
 
 register_api_key<-function(user_api_key,show_key=TRUE){
 
@@ -247,7 +248,7 @@ search_api_by_organization<- function(organization_name_contains=""){
 #'
 #' @examples
 #' get_list_of_sectors()
-#' filtered_api<-search_api_by_organization(sector_name_contains="Consumer")
+#' filtered_api<-search_api_by_sector(sector_name_contains="Consumer")
 
 search_api_by_sector<- function(sector_name_contains=""){
   if(is.null(getOption("api_info_data"))){
@@ -268,7 +269,7 @@ search_api_by_sector<- function(sector_name_contains=""){
 #'
 #' @examples
 #' get_list_of_sources()
-#' filtered_api<-search_api_by_source(sector_name_contains="gov")
+#' filtered_api<-search_api_by_source(source_name_contains="gov")
 
 search_api_by_source<- function(source_name_contains=""){
   if(is.null(getOption("api_info_data"))){
@@ -358,7 +359,7 @@ get_api_fields<-function(api_index) {
 #' @export
 #'
 #' @examples
-#' register_api_key("579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b")
+#' \dontrun{register_api_key("api_key")
 #' search_api_by_title(title_contains="Air Quality") #Get index name from here
 #' get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
 #' request_data<-get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
@@ -366,6 +367,7 @@ get_api_fields<-function(api_index) {
 #'      district="Amritsar,Ludhiana"),
 #'      field_select=c('state','district','city'),
 #'      sort_by=c('state','district','city'))
+#' }
 get_api_data<-function(api_index, results_per_req="all",
                        filter_by=c(),field_select=c(),sort_by=c()){
 

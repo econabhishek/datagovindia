@@ -6,6 +6,10 @@ Authors@R:
            family = "Arora",
            role = c("cre", "aut"),
            email = "abhishek.arora1996@gmail.com")
+    person(given = "Aditya",
+           family = "Chhabra",
+           role = c("cre", "aut"),
+           email = "aditya0chhabra@gmail.com")       
 Description: This wrapper allows the user to communicate with more than
     80,000 APIs posted on the open data portal data.gov.in - open data
     platform of the government of India.  The package allows you to search

@@ -17,5 +17,5 @@ Search API by organization type
 }
 \examples{
   get_list_of_org_types()
-  search_api_by_org_type(org_type_contains="Central")
+ filtered_api<-search_api_by_org_type(org_type_contains="Central")
 }

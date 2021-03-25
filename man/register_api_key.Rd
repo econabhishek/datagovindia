@@ -2,8 +2,7 @@
 % Please edit documentation in R/key_func.R
 \name{register_api_key}
 \alias{register_api_key}
-\title{importFrom magrittr "%>%"
-Registering/Validating User API key}
+\title{Registering/Validating User API key}
 \usage{
 register_api_key(user_api_key, show_key = TRUE)
 }
@@ -20,5 +19,7 @@ Obtain an API key from data.gov.in by registering on the platform. You can find
 it on your "My Account page after logging in.
 }
 \examples{
+\dontrun{
 register_api_key(api_key=xxx,show_key=FALSE)
+}
 }
