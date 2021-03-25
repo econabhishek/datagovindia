@@ -10,7 +10,7 @@ search_api_by_description(description_contains = "")
 \item{description_contains}{string to match in the description of the API (case insensitive)}
 }
 \value{
-API details filtered by descriptions that match the string provided
+data.frame of API details filtered by descriptions that match the string provided
 }
 \description{
 Search API by description
