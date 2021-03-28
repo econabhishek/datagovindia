@@ -4,3 +4,9 @@
 ^LICENSE\.md$
 ^CODE_OF_CONDUCT\.md$
 ^update_api_list.R$
+^api_df.csv$
+^datagovin-Ex.pdf$
+^datagovin-Ex.timings$
+^field_api_df.csv$
+^text_info_api_df.csv$
+
