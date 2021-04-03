@@ -25,7 +25,7 @@ stop_quietly <- function() {
 
 #' Utility to import RDS files from Github
 #'
-#' @param url url of the raw girhub file
+#' @param url URL of the raw github file
 #'
 #' @return file (data frame)
 #'

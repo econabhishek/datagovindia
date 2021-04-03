@@ -9,7 +9,7 @@ get_api_info(api_index)
 \arguments{
 \item{api_index}{API index name (string) you found using the search functions. You can
 also get these from data.gov.in from a specific API page. In the request url,
-it is followed by /resource/xxxxxxxx
+it is followed by /resource/XXXXXXXXX
 For getting the relevant fields in the api use get_api_fields}
 }
 \value{
