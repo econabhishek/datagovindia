@@ -8,7 +8,7 @@
 #' @param user_api_key API Key obtained from data.gov.in
 #' @param show_key Whether to API show key in messages
 #'
-#' @return Success/Faliure of API key validation
+#' @return Success/Failure of API key validation
 #' @export
 #'
 #' @examples
@@ -22,7 +22,7 @@ register_api_key<-function(user_api_key,show_key=TRUE){
 
   #test key function
   test_api_key<-function(key){
-    ##make a test request using any working api
+    ##make a test request using any working API
     ##Get a working API from the master API
     working_api<-httr::GET(url="https://api.data.gov.in/lists?format=json&notfilters[source]=visualize.data.gov.in&filters[active]=1&offset=0&sort[updated]=desc&limit=1") %>%
       httr::content()
@@ -40,7 +40,7 @@ register_api_key<-function(user_api_key,show_key=TRUE){
 
   #if test is a success
   if(test_api_key(key=user_api_key)){options(datagovin=list(user_api_key_set=user_api_key,key_valid=TRUE,key_shown=show_key))
-    message("The api key is valid and you won't have to set it again")} else
+    message("The API key is valid and you won't have to set it again")} else
       message("The API key is invalid. Please generate your API key on- \n https://data.gov.in/user")
   ###make a test request ; if it doesn't work, unset this one and set it to sample key
 
@@ -285,9 +285,9 @@ search_api_by_source<- function(source_name_contains=""){
 #' Get information about the API using the API index name
 #'
 #' @param api_index API index name (string) you found using the search functions. You can
-#' also get these from data.gov.in from a specific API page. In the request url,
+#' also get these from data.gov.in from a specific API page. In the request URL,
 #' it is followed by /resource/xxxxxxxx
-#' For getting the relevant fields in the api use get_api_fields
+#' For getting the relevant fields in the API use get_api_fields
 #'
 #' @return data.frame with 1 row , API that matches API ID
 #' @export
@@ -311,7 +311,7 @@ get_api_info<-function(api_index) {
 #' @param api_index API index name you found using the search functions. You can
 #' also get these from data.gov.in from a specific API page. In the request url,
 #' it is followed by /resource/xxxxxxxx
-#' For getting the relevant fields in the api use get_api_fields
+#' For getting the relevant fields in the API use get_api_fields
 #'
 #' @return data.frame with 1 row , API that matches API ID ;
 #'  contains id,name and type of the field - name and type are usually the same

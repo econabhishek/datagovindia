@@ -8,9 +8,9 @@ get_api_info(api_index)
 }
 \arguments{
 \item{api_index}{API index name (string) you found using the search functions. You can
-also get these from data.gov.in from a specific API page. In the request url,
+also get these from data.gov.in from a specific API page. In the request URL,
 it is followed by /resource/xxxxxxxx
-For getting the relevant fields in the api use get_api_fields}
+For getting the relevant fields in the API use get_api_fields}
 }
 \value{
 data.frame with 1 row , API that matches API ID

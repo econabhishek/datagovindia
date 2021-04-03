@@ -12,7 +12,7 @@ register_api_key(user_api_key, show_key = TRUE)
 \item{show_key}{Whether to API show key in messages}
 }
 \value{
-Success/Faliure of API key validation
+Success/Failure of API key validation
 }
 \description{
 Obtain an API key from data.gov.in by registering on the platform. You can find

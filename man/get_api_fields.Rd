@@ -10,7 +10,7 @@ get_api_fields(api_index)
 \item{api_index}{API index name you found using the search functions. You can
 also get these from data.gov.in from a specific API page. In the request url,
 it is followed by /resource/xxxxxxxx
-For getting the relevant fields in the api use get_api_fields}
+For getting the relevant fields in the API use get_api_fields}
 }
 \value{
 data.frame with 1 row , API that matches API ID ;

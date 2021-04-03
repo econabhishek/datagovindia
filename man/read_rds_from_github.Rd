@@ -7,7 +7,7 @@
 read_rds_from_github(url)
 }
 \arguments{
-\item{url}{url of the raw girhub file}
+\item{url}{URL of the raw github file}
 }
 \value{
 file (data frame)
