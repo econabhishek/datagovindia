@@ -1,0 +1,213 @@
+---
+title: "Getting Started with datagovindia"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with datagovindia}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+**datagovindia** is a wrapper around >80,000 APIS of the Government of India's open
+data platform [data.gov.in](https://data.gov.in/ogpl_apis). Here is a small guide
+to take you thorugh the package.  Primarily,the functionality is centered around
+three aspects :  
+
+* **API discovery** - Finding the right API from all the available APIs
+* **API information** - Getting information about a particular API 
+* **Querying the API** - Getting a tidy data set from the chosen API
+
+## Setup 
+```{r setup}
+library(datagovindia)
+```
+
+
+## API Discovery
+The APIs from the portal are scraped every week to update a list of all APIs and 
+the information attached to them like sector, source, field names etc. The website
+[data.gov.in](https://data.gov.in/ogpl_apis) provides a search functionality through
+string searches and drop down menus but these are very limited. The functions
+in this package allows one to have more robust string based searches.  
+A user can search by API title, description, organization type, organization (ministry),
+sector and sources. Briefly there are two types of functions here, the first lets the 
+user get a list of all available and unique organization type, organization (ministry),
+sector and sources and the other lets one "search" by these criteria and more.
+
+
+Here is a demonstration of the former (getting only the first few values)  
+
+
+```{r}
+###List of organizations (or ministries)
+get_list_of_organizations() %>% 
+  head
+
+```
+
+```{r}
+###List of sectors 
+get_list_of_sectors() %>% 
+  head
+```
+
+
+### Searching for the right API
+
+Once you have an idea about what you want to look for in the API, search queries 
+can be constructed using titles, descriptions as well as the categories explored 
+earlier. A data.frame with information of APIs matching the search keywords is 
+returned. Multiple search functions can be applied over each other utilising the
+data.frame structure of the result. 
+
+
+```{r,results='hide'}
+##Single Criteria
+search_api_by_title(title_contains = "pollution") %>% head(2)
+
+```
+
+
+```{r,echo=FALSE}
+## Signle criteria
+search_api_by_title(title_contains = "pollution") %>%
+  head(2) %>% 
+  knitr::kable()
+```
+
+
+
+```{r,results='hide'}
+##Multiple Criteria
+dplyr::intersect(search_api_by_title(title_contains = "pollution"),
+                 search_api_by_organization(organization_name_contains = "pollution"))
+
+```
+
+
+```{r,echo=FALSE}
+## Signle criteria
+dplyr::intersect(search_api_by_title(title_contains = "pollution"),
+                 search_api_by_organization(organization_name_contains = "pollution")) %>% 
+  knitr::kable()
+```
+
+Once you have found the right API for your use, take a note of the "index_name"
+of that API, for example, "0579cf1f-7e3b-4b15-b29a-87cf7b7c7a08" corresponds to
+the API for "Details of Comprehensive Environmental Pollution Index (CEPI) Scores and Status of Moratorium in Critically Polluted Areas (CPAs) in India". **index_name** 
+will be essential for both getting to know more about the API or to even get data from
+it. 
+
+
+## Getting more information about a chosen API  
+
+There are two functions in this section, one to get API information, the other to get 
+a available "field" names and types of the chosen API (using it's **index_name** obtained above). 
+
+
+### API information
+
+```{r,results='hide'}
+get_api_info(api_index = "0579cf1f-7e3b-4b15-b29a-87cf7b7c7a08")
+```
+
+```{r,echo=FALSE}
+get_api_info(api_index = "0579cf1f-7e3b-4b15-b29a-87cf7b7c7a08") %>% 
+  knitr::kable()
+```
+
+
+### API Fields
+
+Fields are essentially the variables in the dataset obtained from the API. Knowing
+the fields before querying for the data will be essential to preform tasks such as filtering, sorting and subsetting the data obtained from the API's server. 
+
+```{r,results='hide'}
+get_api_fields(api_index = "0579cf1f-7e3b-4b15-b29a-87cf7b7c7a08")
+```
+
+```{r,echo=FALSE}
+get_api_fields(api_index = "0579cf1f-7e3b-4b15-b29a-87cf7b7c7a08") %>% 
+  knitr::kable()
+```
+
+The **id** of these fields is going to be useful while querying the data.
+
+## Querying the chosen API
+
+The function *get_api_data* is really the powerhouse in this package which allows 
+one to do things over and above a manually constructed API query can do by utilizing
+the data.frame structure of the underlying data. It allows the user to filter, sort, 
+select variables and to decide how much of the data to extract. The website can itself 
+filter on only one field with one value at a time but one command through the wrapper
+can make multiple requests and append the results from these requests at the same time.  
+
+But before we dive into data extraction, we first need to validate our API key relieved 
+from [data.gov.in](https://data.gov.in/ogpl_apis). To get the key, you need to register first register and then get the key from your "My Account" page after logging in.
+More instruction can be found on this [official guide](https://data.gov.in/help/how-use-datasets-apis). Once you get your API key, you 
+can validate it as follows (only need to do this ocne per session) :
+
+```{r}
+##Using a sample key
+register_api_key("579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b")
+
+```
+
+Once you have your key registered, you are ready to extract data from a chosen API.
+Here is what each argument means :  
+
+* api_index : index_name of the chosen API (found by using search functions)
+* results_per_req : Results per request sent to the server ; can take integer values or the string "all" to get all of the available data
+* filter_by : A named character vector of field id (not the name) - value(s) pairs ; can take multiple fields as well as multiple comma separated values
+* field_select : A character vector of fields to select only a subset of variables in the final data.frame
+* sort_by : Sort by one or multiple fields
+
+
+To recap, first find the API you want using the search functions, get the **index_name** of the API from the results, optionally take a look at the fields present in the data of the API and then use the get_api_data function to extract the data. 
+Suppose we choose the API "Real time Air Quality Index from various location" with index_ name *3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69*. First we will look at which fields are available to construct the right query.  
+Suppose We want to get the data from only 2 cities Chandigarh and Gurugram and pollutants PM10 and NO2. We will let all fields to be returned (dataset columns).
+
+We will use a sample key from the website for this demonstration. 
+
+```{r}
+register_api_key("579b464db66ec23bdd0000019fc84f43ca52437351b43702f5998234")
+```
+We now look at the fields available to play with. 
+
+```{r,results="hide"}
+get_api_fields("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
+```
+
+```{r,echo=FALSE}
+get_api_fields("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69") %>% 
+  knitr::kable()
+```
+
+We accordingly select the **city** and **pollution_id** fields for constructing our query. 
+Note that we use only field id. To finally query the data.
+
+```{r,results='hide'}
+
+get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
+             results_per_req=10,filter_by=c(city="Gurugram,Chandigarh",
+                                            polutant_id="PM10,NO2"),
+             field_select=c(),
+             sort_by=c('state','city'))
+```
+```{r,echo=FALSE}
+
+get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
+             results_per_req=10,filter_by=c(city="Gurugram,Chandigarh",                                 pollutant_id="PM10,NO2"),
+             field_select=c(),
+             sort_by=c('state','district','city')) %>% 
+  knitr::kable()
+```
+
+

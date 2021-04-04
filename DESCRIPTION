@@ -1,6 +1,6 @@
 Package: datagovindia
 Title: Data.gov.in API Wrapper
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     c(person(given = "Abhishek",
            family = "Arora",
@@ -17,7 +17,7 @@ Description: This wrapper allows the user to communicate with more than
     of the APIs with a better interface than the one website provides.
     Once a user has the ID by using the API discovery functionalities, 
     it allows one to converse with the API using a consistent format across all
-    available API.
+    available APIs.
 License: MIT + file LICENSE
 URL: https://github.com/econabhishek/datagovindia
 BugReports: https://github.com/econabhishek/datagovindia/issues
@@ -32,4 +32,7 @@ Imports:
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 Suggests: 
+    rmarkdown,
+    knitr,
     testthat
+VignetteBuilder: knitr

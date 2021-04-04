@@ -3,7 +3,8 @@
 #' Registering/Validating User API key
 #'
 #'Obtain an API key from data.gov.in by registering on the platform. You can find
-#'it on your "My Account page after logging in.
+#'it on your "My Account" page after logging in. Here is the official guide for
+#'your reference \url{https://data.gov.in/help/how-use-datasets-apis}
 #'
 #' @param user_api_key API Key obtained from data.gov.in
 #' @param show_key Whether to API show key in messages
@@ -12,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#'\dontrun{
 #' register_api_key(api_key=xxx,show_key=FALSE)
 #' }
 
@@ -359,9 +360,9 @@ get_api_fields<-function(api_index) {
 #' @export
 #'
 #' @examples
-#' \dontrun{register_api_key("api_key")
-#' search_api_by_title(title_contains="Air Quality") #Get index name from here
-#' get_api_fields('3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69') #Example Index; get a list of fields
+#' \dontrun{
+#' register_api_key("api_key")
+#'
 #' request_data<-get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
 #'      results_per_req=10,filter_by=c(state="Punjab,Haryana",
 #'      district="Amritsar,Ludhiana"),
@@ -371,7 +372,15 @@ get_api_fields<-function(api_index) {
 get_api_data<-function(api_index, results_per_req="all",
                        filter_by=c(),field_select=c(),sort_by=c()){
 
+
+
   check_internet_connection()
+
+  ##check if there is a valid API key
+  if(is.null(getOption("datagovin"))){stop("You haven't validated your API key.
+                                           Use register_api_key() to do so.")}
+
+
   ##first a function that scrubs the API key if the show key option is false
   scrub_key<-function (string, with = "xxx")
   { if(getOption("datagovin")$key_shown==TRUE) {return(string)} else {}
