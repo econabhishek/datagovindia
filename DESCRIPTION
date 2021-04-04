@@ -31,3 +31,5 @@ Imports:
     rlang
 Encoding: UTF-8
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat
