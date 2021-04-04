@@ -16,7 +16,8 @@ Success/Failure of API key validation
 }
 \description{
 Obtain an API key from data.gov.in by registering on the platform. You can find
-it on your "My Account page after logging in.
+it on your "My Account" page after logging in. Here is the official guide for
+your reference \url{https://data.gov.in/help/how-use-datasets-apis}
 }
 \examples{
 \dontrun{
