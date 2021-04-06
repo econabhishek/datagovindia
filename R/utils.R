@@ -51,7 +51,7 @@ read_rds_from_github<-function(url){
 #' @examples
 #' api_details<-import_api_details()
 import_api_details<-function(){
-  data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/inst/extdata/text_info_api_df.rds")
+  data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/api_library_data/text_info_api_df.rds")
   return(data)
 }
 
@@ -67,7 +67,7 @@ import_api_details<-function(){
 #' @examples
 #' api_field_details<-import_field_details()
 import_field_details<-function(){
-  data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/inst/extdata/field_api_df.rds")
+  data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/api_library_data/field_api_df.rds")
   return(data)
 }
 

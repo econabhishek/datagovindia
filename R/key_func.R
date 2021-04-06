@@ -310,12 +310,13 @@ get_api_info<-function(api_index) {
 #' Get fields contained in the response of the API using the API index name
 #'
 #' @param api_index API index name you found using the search functions. You can
-#' also get these from data.gov.in from a specific API page. In the request url,
+#' also get these from data.gov.in from a specific API page. In the request URL,
 #' it is followed by /resource/xxxxxxxx
 #' For getting the relevant fields in the API use get_api_fields
 #'
 #' @return data.frame with 1 row , API that matches API ID ;
-#'  contains id,name and type of the field - name and type are usually the same
+#'  contains ID, name and type of the field - name and type are usually the same;
+#'  but we recommend using ID for queries.
 #' @export
 #'
 #' @examples
@@ -384,7 +385,7 @@ get_api_data<-function(api_index, results_per_req="all",
   ##first a function that scrubs the API key if the show key option is false
   scrub_key<-function (string, with = "xxx")
   { if(getOption("datagovin")$key_shown==TRUE) {return(string)} else {}
-    stringr::str_replace_all(string, "(key|client|signature)=(\\w+)",
+    stringr::str_replace_all(string, "(key)=(\\w+)",
                     stringr::str_c("\\1=", with))
   }
 
