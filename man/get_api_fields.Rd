@@ -8,13 +8,14 @@ get_api_fields(api_index)
 }
 \arguments{
 \item{api_index}{API index name you found using the search functions. You can
-also get these from data.gov.in from a specific API page. In the request url,
+also get these from data.gov.in from a specific API page. In the request URL,
 it is followed by /resource/xxxxxxxx
 For getting the relevant fields in the API use get_api_fields}
 }
 \value{
 data.frame with 1 row , API that matches API ID ;
- contains id,name and type of the field - name and type are usually the same
+ contains ID, name and type of the field - name and type are usually the same;
+ but we recommend using ID for queries.
 }
 \description{
 Get fields contained in the response of the API using the API index name

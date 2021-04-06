@@ -64,7 +64,7 @@ get_list_of_sectors() %>%
 Once you have an idea about what you want to look for in the API, search queries 
 can be constructed using titles, descriptions as well as the categories explored 
 earlier. A data.frame with information of APIs matching the search keywords is 
-returned. Multiple search functions can be applied over each other utilising the
+returned. Multiple search functions can be applied over each other utilizing the
 data.frame structure of the result. 
 
 
@@ -152,7 +152,7 @@ can make multiple requests and append the results from these requests at the sam
 But before we dive into data extraction, we first need to validate our API key relieved 
 from [data.gov.in](https://data.gov.in/ogpl_apis). To get the key, you need to register first register and then get the key from your "My Account" page after logging in.
 More instruction can be found on this [official guide](https://data.gov.in/help/how-use-datasets-apis). Once you get your API key, you 
-can validate it as follows (only need to do this ocne per session) :
+can validate it as follows (only need to do this once per session) :
 
 ```{r}
 ##Using a sample key
@@ -191,7 +191,7 @@ get_api_fields("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69") %>%
 ```
 
 We accordingly select the **city** and **pollution_id** fields for constructing our query. 
-Note that we use only field id. To finally query the data.
+Note that we use only field id to finally query the data.
 
 ```{r,results='hide'}
 
@@ -201,7 +201,8 @@ get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
              field_select=c(),
              sort_by=c('state','city'))
 ```
-```{r,echo=FALSE}
+
+```{r,echo=FALSE,message=FALSE}
 
 get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
              results_per_req=10,filter_by=c(city="Gurugram,Chandigarh",                                 pollutant_id="PM10,NO2"),
