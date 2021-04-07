@@ -11,13 +11,13 @@ Authors@R:
            role = c("aut"),
            email = "aditya0chhabra@gmail.com"))       
 Description: This wrapper allows the user to communicate with more than
-    80,000 APIs posted on data.gov.in - open data
+    80,000 API posted on data.gov.in - open data
     platform of the government of India <https:data.gov.in/ogpl_apis>. 
     It also allows the user to search for the API required through the universe
-    of the APIs with a better interface than the one website provides.
+    of the API with a better interface than the one the official website provides.
     Once a user has the ID by using the API discovery functionalities, 
     it allows one to converse with the API using a consistent format across all
-    available APIs.
+    available API.
 License: MIT + file LICENSE
 URL: https://github.com/econabhishek/datagovindia
 BugReports: https://github.com/econabhishek/datagovindia/issues
