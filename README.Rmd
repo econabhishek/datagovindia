@@ -49,13 +49,12 @@ library(datagovindia)
 ```
 
 
-Know more about the various functions in the package [vignette](LINK)
-
+Know more about the various functions in the package **vignette**.
 
 ## Example workflow
 
 Once you have the API key ready, and have chosen the API you want and have its 
-index_name ([vignette](LINK) for more details) using the search functions in the
+index_name (**vignette** for more details) using the search functions in the
 package, you are ready to extract data from it. 
 
 
