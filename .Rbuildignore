@@ -10,7 +10,6 @@
 ^field_api_df.csv$
 ^text_info_api_df.csv$
 ^api_library_data$
-
 ^README\.Rmd$
 ^doc$
 ^Meta$
