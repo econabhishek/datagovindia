@@ -16,9 +16,9 @@ knitr::opts_chunk$set(
 # datagovindia
 
 
-**datagovindia** is a wrapper around >80,000 APIS of the Government of India's open
+**datagovindia** is a wrapper around >80,000 APIs of the Government of India's open
 data platform [data.gov.in](https://data.gov.in/ogpl_apis). Here is a small guide
-to take you thorugh the package.  Primarily,the functionality is centered around
+to take you through the package.  Primarily,the functionality is centered around
 three aspects :  
 
 * **API discovery** - Finding the right API from all the available APIs
@@ -34,7 +34,7 @@ You can install the development version from [GitHub](https://github.com/econabh
 # install.packages("devtools")
 devtools::install_github("econabhishek/datagovindia")
 ```
-## Prequisites 
+## Prerequisites 
 
 * An account on data.gov.in
 * An API key from the My Account page (instructions here : [official guide](https://data.gov.in/help/how-use-datasets-apis))
@@ -49,13 +49,12 @@ library(datagovindia)
 ```
 
 
-Know more about the various functions in the package [vignette](LINK)
-
+Know more about the various functions in the package **vignette**.
 
 ## Example workflow
 
 Once you have the API key ready, and have chosen the API you want and have its 
-index_name ([vignette](LINK) for more details) using the search functions in the
+index_name (**vignette** for more details) using the search functions in the
 package, you are ready to extract data from it. 
 
 

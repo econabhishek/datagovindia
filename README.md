@@ -3,9 +3,9 @@
 
 # datagovindia
 
-**datagovindia** is a wrapper around \>80,000 APIS of the Government of
+**datagovindia** is a wrapper around \>80,000 APIs of the Government of
 India’s open data platform [data.gov.in](https://data.gov.in/ogpl_apis).
-Here is a small guide to take you thorugh the package. Primarily,the
+Here is a small guide to take you through the package. Primarily,the
 functionality is centered around three aspects :
 
   - **API discovery** - Finding the right API from all the available
@@ -23,7 +23,7 @@ You can install the development version from
 devtools::install_github("econabhishek/datagovindia")
 ```
 
-## Prequisites
+## Prerequisites
 
   - An account on data.gov.in
   - An API key from the My Account page (instructions here : [official
@@ -37,13 +37,13 @@ library(datagovindia)
 #Validate your API key
 ```
 
-Know more about the various functions in the package [vignette](LINK)
+Know more about the various functions in the package **vignette**.
 
 ## Example workflow
 
 Once you have the API key ready, and have chosen the API you want and
-have its index\_name ([vignette](LINK) for more details) using the
-search functions in the package, you are ready to extract data from it.
+have its index\_name (**vignette** for more details) using the search
+functions in the package, you are ready to extract data from it.
 
 The function *get\_api\_data* is really the powerhouse in this package
 which allows one to do things over and above a manually constructed API
@@ -142,10 +142,10 @@ get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
 
 | id  | country | state      | city       | station                       | last\_update        | pollutant\_id | pollutant\_min | pollutant\_max | pollutant\_avg | pollutant\_unit |
 | :-- | :------ | :--------- | :--------- | :---------------------------- | :------------------ | :------------ | :------------- | :------------- | :------------- | :-------------- |
-| 454 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 07-04-2021 10:00:00 | PM10          | 155            | 500            | 340            | NA              |
-| 461 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 07-04-2021 10:00:00 | PM10          | 114            | 448            | 220            | NA              |
-| 120 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 07-04-2021 10:00:00 | PM10          | 105            | 500            | 225            | NA              |
-| 455 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 07-04-2021 10:00:00 | NO2           | 16             | 23             | 18             | NA              |
-| 462 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 07-04-2021 10:00:00 | NO2           | 10             | 23             | 16             | NA              |
-| 468 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 07-04-2021 10:00:00 | NO2           | 12             | 139            | 58             | NA              |
-| 121 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 07-04-2021 10:00:00 | NO2           | 17             | 109            | 44             | NA              |
+| 453 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 07-04-2021 11:00:00 | PM10          | 155            | 500            | 342            | NA              |
+| 460 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 07-04-2021 11:00:00 | PM10          | 114            | 448            | 219            | NA              |
+| 120 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 07-04-2021 11:00:00 | PM10          | 105            | 500            | 228            | NA              |
+| 454 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 07-04-2021 11:00:00 | NO2           | 16             | 22             | 18             | NA              |
+| 461 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 07-04-2021 11:00:00 | NO2           | 10             | 23             | 16             | NA              |
+| 467 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 07-04-2021 11:00:00 | NO2           | 12             | 139            | 57             | NA              |
+| 121 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 07-04-2021 11:00:00 | NO2           | 17             | 109            | 42             | NA              |
