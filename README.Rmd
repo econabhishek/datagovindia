@@ -26,6 +26,11 @@ three aspects :
 * **Querying the API** - Getting a tidy data set from the chosen API
 
 ## Installation
+The package is now on CRAN, download using : 
+```r
+install.packages("datagovindia")
+```
+
 
 
 You can install the development version from [GitHub](https://github.com/econabhishek/datagovindia) with:
@@ -44,17 +49,15 @@ devtools::install_github("econabhishek/datagovindia")
 ```{r example}
 library(datagovindia)
 
-#Validate your API key
-
 ```
 
 
-Know more about the various functions in the package **vignette**.
+Know more about the various functions in the package [**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html).
 
 ## Example workflow
 
 Once you have the API key ready, and have chosen the API you want and have its 
-index_name (**vignette** for more details) using the search functions in the
+index_name ([**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html) for more details) using the search functions in the
 package, you are ready to extract data from it. 
 
 

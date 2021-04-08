@@ -15,6 +15,12 @@ functionality is centered around three aspects :
 
 ## Installation
 
+The package is now on CRAN, download using :
+
+``` r
+install.packages("datagovindia")
+```
+
 You can install the development version from
 [GitHub](https://github.com/econabhishek/datagovindia) with:
 
@@ -33,17 +39,18 @@ devtools::install_github("econabhishek/datagovindia")
 
 ``` r
 library(datagovindia)
-
-#Validate your API key
 ```
 
-Know more about the various functions in the package **vignette**.
+Know more about the various functions in the package
+[**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html).
 
 ## Example workflow
 
 Once you have the API key ready, and have chosen the API you want and
-have its index\_name (**vignette** for more details) using the search
-functions in the package, you are ready to extract data from it.
+have its index\_name
+([**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html)
+for more details) using the search functions in the package, you are
+ready to extract data from it.
 
 The function *get\_api\_data* is really the powerhouse in this package
 which allows one to do things over and above a manually constructed API
@@ -142,10 +149,10 @@ get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
 
 | id  | country | state      | city       | station                       | last\_update        | pollutant\_id | pollutant\_min | pollutant\_max | pollutant\_avg | pollutant\_unit |
 | :-- | :------ | :--------- | :--------- | :---------------------------- | :------------------ | :------------ | :------------- | :------------- | :------------- | :-------------- |
-| 453 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 07-04-2021 11:00:00 | PM10          | 155            | 500            | 342            | NA              |
-| 460 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 07-04-2021 11:00:00 | PM10          | 114            | 448            | 219            | NA              |
-| 120 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 07-04-2021 11:00:00 | PM10          | 105            | 500            | 228            | NA              |
-| 454 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 07-04-2021 11:00:00 | NO2           | 16             | 22             | 18             | NA              |
-| 461 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 07-04-2021 11:00:00 | NO2           | 10             | 23             | 16             | NA              |
-| 467 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 07-04-2021 11:00:00 | NO2           | 12             | 139            | 57             | NA              |
-| 121 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 07-04-2021 11:00:00 | NO2           | 17             | 109            | 42             | NA              |
+| 459 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 08-04-2021 03:00:00 | PM10          | 119            | 194            | 165            | NA              |
+| 466 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 08-04-2021 03:00:00 | PM10          | 78             | 153            | 124            | NA              |
+| 120 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 08-04-2021 03:00:00 | PM10          | 41             | 114            | 75             | NA              |
+| 460 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 08-04-2021 03:00:00 | NO2           | 11             | 17             | 13             | NA              |
+| 467 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 08-04-2021 03:00:00 | NO2           | 8              | 18             | 14             | NA              |
+| 473 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 08-04-2021 03:00:00 | NO2           | 10             | 55             | 31             | NA              |
+| 121 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 08-04-2021 03:00:00 | NO2           | 11             | 61             | 24             | NA              |
