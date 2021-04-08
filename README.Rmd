@@ -26,6 +26,11 @@ three aspects :
 * **Querying the API** - Getting a tidy data set from the chosen API
 
 ## Installation
+The package is now on CRAN, download using : 
+```r
+install.packages("datagovindia")
+```
+
 
 
 You can install the development version from [GitHub](https://github.com/econabhishek/datagovindia) with:
