@@ -149,10 +149,29 @@ get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
 
 | id  | country | state      | city       | station                       | last\_update        | pollutant\_id | pollutant\_min | pollutant\_max | pollutant\_avg | pollutant\_unit |
 | :-- | :------ | :--------- | :--------- | :---------------------------- | :------------------ | :------------ | :------------- | :------------- | :------------- | :-------------- |
-| 459 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 08-04-2021 03:00:00 | PM10          | 119            | 194            | 165            | NA              |
-| 466 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 08-04-2021 03:00:00 | PM10          | 78             | 153            | 124            | NA              |
-| 120 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 08-04-2021 03:00:00 | PM10          | 41             | 114            | 75             | NA              |
-| 460 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 08-04-2021 03:00:00 | NO2           | 11             | 17             | 13             | NA              |
-| 467 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 08-04-2021 03:00:00 | NO2           | 8              | 18             | 14             | NA              |
-| 473 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 08-04-2021 03:00:00 | NO2           | 10             | 55             | 31             | NA              |
-| 121 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 08-04-2021 03:00:00 | NO2           | 11             | 61             | 24             | NA              |
+| 450 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 15-04-2021 10:00:00 | PM10          | 161            | 380            | 253            | NA              |
+| 457 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 15-04-2021 10:00:00 | PM10          | 153            | 354            | 196            | NA              |
+| 113 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 15-04-2021 10:00:00 | PM10          | 57             | 141            | 106            | NA              |
+| 451 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 15-04-2021 10:00:00 | NO2           | 11             | 12             | 11             | NA              |
+| 458 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 15-04-2021 10:00:00 | NO2           | 14             | 20             | 16             | NA              |
+| 464 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 15-04-2021 10:00:00 | NO2           | 10             | 123            | 63             | NA              |
+| 114 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 15-04-2021 10:00:00 | NO2           | 13             | 60             | 32             | NA              |
+
+## **Python Version**
+
+This wrapper is also available on Python (PyPI) visit -
+
+  - [Development version](https://github.com/addypy/datagovindia)
+
+  - [PyPI](https://pypi.org/project/datagovindia/)
+
+Use
+
+``` python
+pip install datagovindia
+```
+
+Authors :
+
+  - [Abhishek Arora](https://github.com/econabhishek)
+  - [Aditya Karan Chhabra](https://github.com/addypy)
