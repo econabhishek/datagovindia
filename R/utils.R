@@ -51,6 +51,7 @@ read_rds_from_github<-function(url){
 #' @examples
 #' api_details<-import_api_details()
 import_api_details<-function(){
+  options(timeout=100)
   data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/api_library_data/text_info_api_df.rds")
   return(data)
 }
@@ -67,10 +68,35 @@ import_api_details<-function(){
 #' @examples
 #' api_field_details<-import_field_details()
 import_field_details<-function(){
+  options(timeout=100)
   data <- read_rds_from_github("https://github.com/econabhishek/datagovindia/raw/master/api_library_data/field_api_df.rds")
   return(data)
 }
 
+
+
+#' Utility to check the server of data.gov.in APIs
+#'
+#'
+#' @return Message
+#' @export
+#'
+#' @examples
+#' check_datagovin_server()
+check_datagovin_server<-function() {
+  api_list_page<- httr::GET(url = "https://api.data.gov.in/lists?format=json&notfilters[source]=visualize.data.gov.in&filters[active]=1&offset=0&sort[updated]=desc&limit=1") %>%
+    httr::content()
+
+  if(api_list_page$status == "error"){
+
+    options(datagovin_server_online=FALSE)
+    message("The data.gov.in server is down, please try again later.")}
+  else{
+
+    options(datagovin_server_online=TRUE)
+    message("The server is online")}
+
+}
 
 
 

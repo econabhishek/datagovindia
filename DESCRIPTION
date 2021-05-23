@@ -1,6 +1,6 @@
 Package: datagovindia
 Title: Data.gov.in API Wrapper
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     c(person(given = "Abhishek",
            family = "Arora",
@@ -34,5 +34,6 @@ RoxygenNote: 7.1.1
 Suggests: 
     rmarkdown,
     knitr,
-    testthat
+    testthat,
+    xml2
 VignetteBuilder: knitr
