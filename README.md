@@ -42,13 +42,13 @@ library(datagovindia)
 ```
 
 Know more about the various functions in the package
-[**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html).
+[**vignette**](https://cran.r-project.org/package=datagovindia/vignettes/datagovindia_vignette.html).
 
 ## Example workflow
 
 Once you have the API key ready, and have chosen the API you want and
 have its index\_name
-([**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html)
+([**vignette**](https://cran.r-project.org/package=datagovindia/vignettes/datagovindia_vignette.html)
 for more details) using the search functions in the package, you are
 ready to extract data from it.
 
@@ -74,6 +74,7 @@ per session, this is a sample key from the website for demonstration) :
 ##Using a sample key
 register_api_key("579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b")
 #> Connected to the internet
+#> The server is online
 #> The API key is valid and you won't have to set it again
 ```
 
@@ -137,6 +138,7 @@ get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
              field_select=c(),
              sort_by=c('state','city'))
 #> Connected to the internet
+#> The server is online
 #> url-https://api.data.gov.in/resource/3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset=0&limit=10&filters[city]=Gurugram&filters[polutant_id]=PM10
 #> gave the API a rest
 #> url-https://api.data.gov.in/resource/3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset=0&limit=10&filters[city]=Chandigarh&filters[polutant_id]=PM10
@@ -145,17 +147,18 @@ get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
 #> gave the API a rest
 #> url-https://api.data.gov.in/resource/3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&offset=0&limit=10&filters[city]=Chandigarh&filters[polutant_id]=NO2
 #> gave the API a rest
+#> No results returned - check your api_index
 ```
 
 | id  | country | state      | city       | station                       | last\_update        | pollutant\_id | pollutant\_min | pollutant\_max | pollutant\_avg | pollutant\_unit |
 | :-- | :------ | :--------- | :--------- | :---------------------------- | :------------------ | :------------ | :------------- | :------------- | :------------- | :-------------- |
-| 450 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 15-04-2021 10:00:00 | PM10          | 161            | 380            | 253            | NA              |
-| 457 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 15-04-2021 10:00:00 | PM10          | 153            | 354            | 196            | NA              |
-| 113 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 15-04-2021 10:00:00 | PM10          | 57             | 141            | 106            | NA              |
-| 451 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 15-04-2021 10:00:00 | NO2           | 11             | 12             | 11             | NA              |
-| 458 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 15-04-2021 10:00:00 | NO2           | 14             | 20             | 16             | NA              |
-| 464 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 15-04-2021 10:00:00 | NO2           | 10             | 123            | 63             | NA              |
-| 114 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 15-04-2021 10:00:00 | NO2           | 13             | 60             | 32             | NA              |
+| 428 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 31-05-2021 08:00:00 | PM10          | 36             | 222            | 100            | NA              |
+| 435 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 31-05-2021 08:00:00 | PM10          | 24             | 104            | 55             | NA              |
+| 108 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 31-05-2021 08:00:00 | PM10          | 56             | 134            | 84             | NA              |
+| 429 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 31-05-2021 08:00:00 | NO2           | 17             | 23             | 19             | NA              |
+| 436 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 31-05-2021 08:00:00 | NO2           | 5              | 8              | 6              | NA              |
+| 442 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 31-05-2021 08:00:00 | NO2           | 19             | 108            | 47             | NA              |
+| 109 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 31-05-2021 08:00:00 | NO2           | 14             | 40             | 23             | NA              |
 
 ## **Python Version**
 

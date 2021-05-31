@@ -13,6 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+
 # datagovindia
 
 
@@ -52,12 +54,12 @@ library(datagovindia)
 ```
 
 
-Know more about the various functions in the package [**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html).
+Know more about the various functions in the package [**vignette**](https://cran.r-project.org/package=datagovindia/vignettes/datagovindia_vignette.html).
 
 ## Example workflow
 
 Once you have the API key ready, and have chosen the API you want and have its 
-index_name ([**vignette**](https://cran.r-project.org/web/packages/datagovindia/vignettes/datagovindia_vignette.html) for more details) using the search functions in the
+index_name ([**vignette**](https://cran.r-project.org/package=datagovindia/vignettes/datagovindia_vignette.html) for more details) using the search functions in the
 package, you are ready to extract data from it. 
 
 

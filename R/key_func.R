@@ -85,6 +85,59 @@ get_list_of_org_types<-function(){
 }
 
 
+#' Get a data.frame of recently created APIs
+#'
+#' This will return a data.frame of recently created APIs
+#'
+#'
+#' @param N Number of APIs to return
+#' @return Get data.frame of N most recently created API sorted by date of creation
+#' @export
+#'
+#' @examples
+#' recently_created_api<-get_recently_updated_api()
+get_recently_created_api<-function(N=20){
+
+  if(is.null(getOption("api_info_data"))){
+    options(api_info_data=import_api_details())}
+  api_details<-getOption("api_info_data")
+  api_details %>%
+    dplyr::arrange(dplyr::desc(.data$created_date)) %>%
+    utils::head(N)
+
+
+
+}
+
+
+
+
+#' Get a data.frame of recently updated APIs
+#'
+#' This will return a data.frame of recently updated APIs
+#'
+#' @param N Number of APIs to return
+#' @return Get data.frame of N most recently updated API sorted by date of update
+#' @export
+#'
+#' @examples
+#' recently_updated_api<-get_recently_updated_api()
+get_recently_updated_api<-function(N=20){
+
+  if(is.null(getOption("api_info_data"))){
+    options(api_info_data=import_api_details())}
+  api_details<-getOption("api_info_data")
+  api_details %>%
+    dplyr::arrange(dplyr::desc(.data$updated_date)) %>%
+    utils::head(N)
+
+
+
+}
+
+
+
+
 #' Get a list of unique organizations
 #'
 #'These include which ministry releases the underlying data.
@@ -159,6 +212,61 @@ get_list_of_sources<-function()  {
   unique
 
 }
+
+
+#' Search API by Created Date
+#'
+#' Returns APIs which were created on a specific date.
+#' This function takes in a Date object as its input. Use ymd/mdy/dmy functions
+#' from the package lubridate to make this easier.
+#'
+#'
+#' @param date A Date object corresponding to chosen date of creation
+#'
+#' @return data.frame of API details filtered by date of creation
+#' @export
+#'
+#' @examples
+#' filtered_api<-search_api_by_created_date(date=as.Date("2021-12-20"))
+search_api_by_created_date<-function(date=Sys.Date()){
+
+  if(is.null(getOption("api_info_data"))){
+    options(api_info_data=import_api_details())}
+  api_details<-getOption("api_info_data")
+
+  filtered_details<-api_details %>%
+    dplyr::filter(as.Date(.data$created_date)==date)
+  return(filtered_details)
+}
+
+
+#' Search API by Updated Date
+#'
+#' Returns APIs which were updated on a specific date.
+#' This function takes in a Date object as its input. Use ymd/mdy/dmy functions
+#' from the package lubridate to make this easier.
+#'
+#'
+#' @param date A Date object corresponding to chosen date of update
+#'
+#' @return data.frame of API details filtered by date of update
+#' @export
+#'
+#' @examples
+#' filtered_api<-search_api_by_updated_date(date=as.Date("2021-12-20"))
+search_api_by_updated_date<-function(date=Sys.Date()){
+
+  if(is.null(getOption("api_info_data"))){
+    options(api_info_data=import_api_details())}
+  api_details<-getOption("api_info_data")
+
+  filtered_details<-api_details %>%
+    dplyr::filter(as.Date(.data$updated_date)==date)
+  return(filtered_details)
+}
+
+
+
 
 
 #' Search API by title
