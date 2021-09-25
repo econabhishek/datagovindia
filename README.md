@@ -3,7 +3,7 @@
 
 # datagovindia
 
-**datagovindia** is a wrapper around \>80,000 APIs of the Government of
+**datagovindia** is a wrapper around \>100,000 APIs of the Government of
 India’s open data platform [data.gov.in](https://data.gov.in/ogpl_apis).
 Here is a small guide to take you through the package. Primarily,the
 functionality is centered around three aspects :
@@ -110,21 +110,20 @@ We now look at the fields available to play with.
 get_api_fields("3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69")
 ```
 
-| id              | name            | type    |
-| :-------------- | :-------------- | :------ |
-| document\_id    | document\_id    | double  |
-| id              | id              | double  |
-| country         | country         | keyword |
-| state           | state           | keyword |
-| city            | city            | keyword |
-| station         | station         | keyword |
-| last\_update    | last\_update    | date    |
-| pollutant\_id   | pollutant\_id   | keyword |
-| pollutant\_min  | pollutant\_min  | double  |
-| pollutant\_max  | pollutant\_max  | double  |
-| pollutant\_avg  | pollutant\_avg  | double  |
-| pollutant\_unit | pollutant\_unit | keyword |
-| resource\_uuid  | resource\_uuid  | keyword |
+| id             | name           | type    |
+| :------------- | :------------- | :------ |
+| document\_id   | document\_id   | double  |
+| id             | id             | double  |
+| country        | country        | keyword |
+| state          | state          | keyword |
+| city           | city           | keyword |
+| station        | station        | keyword |
+| pollutant\_id  | pollutant\_id  | keyword |
+| last\_update   | last\_update   | date    |
+| pollutant\_min | pollutant\_min | double  |
+| pollutant\_max | pollutant\_max | double  |
+| pollutant\_avg | pollutant\_avg | double  |
+| resource\_uuid | resource\_uuid | keyword |
 
 We accordingly select the **city** and **pollution\_id** fields for
 constructing our query. Note that we use only field id to finally query
@@ -150,15 +149,19 @@ get_api_data(api_index="3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69",
 #> No results returned - check your api_index
 ```
 
-| id  | country | state      | city       | station                       | last\_update        | pollutant\_id | pollutant\_min | pollutant\_max | pollutant\_avg | pollutant\_unit |
-| :-- | :------ | :--------- | :--------- | :---------------------------- | :------------------ | :------------ | :------------- | :------------- | :------------- | :-------------- |
-| 428 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 31-05-2021 08:00:00 | PM10          | 36             | 222            | 100            | NA              |
-| 435 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 31-05-2021 08:00:00 | PM10          | 24             | 104            | 55             | NA              |
-| 108 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 31-05-2021 08:00:00 | PM10          | 56             | 134            | 84             | NA              |
-| 429 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB   | 31-05-2021 08:00:00 | NO2           | 17             | 23             | 19             | NA              |
-| 436 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB   | 31-05-2021 08:00:00 | NO2           | 5              | 8              | 6              | NA              |
-| 442 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB | 31-05-2021 08:00:00 | NO2           | 19             | 108            | 47             | NA              |
-| 109 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC  | 31-05-2021 08:00:00 | NO2           | 14             | 40             | 23             | NA              |
+| id  | country | state      | city       | station                          | pollutant\_id | last\_update        | pollutant\_min | pollutant\_max | pollutant\_avg |
+| :-- | :------ | :--------- | :--------- | :------------------------------- | :------------ | :------------------ | :------------- | :------------- | :------------- |
+| 550 | India   | Haryana    | Gurugram   | NISE Gwal Pahari, Gurugram - IMD | PM10          | 25-09-2021 05:00:00 | 22             | 102            | 50             |
+| 555 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB      | PM10          | 25-09-2021 05:00:00 | 59             | 119            | 81             |
+| 562 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB      | PM10          | 25-09-2021 05:00:00 | 36             | 100            | 61             |
+| 103 | India   | Chandigarh | Chandigarh | Sector 22, Chandigarh - CPCC     | PM10          | 25-09-2021 05:00:00 | 13             | 102            | 49             |
+| 110 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC     | PM10          | 25-09-2021 05:00:00 | 19             | 84             | 42             |
+| 551 | India   | Haryana    | Gurugram   | NISE Gwal Pahari, Gurugram - IMD | NO2           | 25-09-2021 05:00:00 | 13             | 25             | 17             |
+| 556 | India   | Haryana    | Gurugram   | Sector-51, Gurugram - HSPCB      | NO2           | 25-09-2021 05:00:00 | 8              | 13             | 10             |
+| 563 | India   | Haryana    | Gurugram   | Teri Gram, Gurugram - HSPCB      | NO2           | 25-09-2021 05:00:00 | 8              | 10             | 8              |
+| 569 | India   | Haryana    | Gurugram   | Vikas Sadan, Gurugram - HSPCB    | NO2           | 25-09-2021 05:00:00 | 17             | 40             | 28             |
+| 104 | India   | Chandigarh | Chandigarh | Sector 22, Chandigarh - CPCC     | NO2           | 25-09-2021 05:00:00 | 15             | 83             | 42             |
+| 111 | India   | Chandigarh | Chandigarh | Sector-25, Chandigarh - CPCC     | NO2           | 25-09-2021 05:00:00 | 4              | 29             | 13             |
 
 ## **Python Version**
 

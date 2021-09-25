@@ -1,6 +1,6 @@
 Package: datagovindia
 Title: Data.gov.in API Wrapper
-Version: 1.0.4
+Version: 1.0.5
 Authors@R: 
     c(person(given = "Abhishek",
            family = "Arora",
@@ -28,13 +28,13 @@ Imports:
     magrittr,
     plyr,
     stringr,
-    rlang,
-    xml2
+    rlang
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 Suggests: 
     rmarkdown,
     knitr,
     testthat,
-    lubridate
+    lubridate,
+    xml2
 VignetteBuilder: knitr

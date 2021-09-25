@@ -12,3 +12,8 @@
 
 * Robust error handling for server issues
 * Introduced new API discovery functions to search by dates of update and creation of APIs
+
+
+## datagovindia 1.0.5
+
+* Bug fixes for server-side issues like changing variable names - fixed that and resubmitted to CRAN
