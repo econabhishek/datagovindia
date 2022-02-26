@@ -15,9 +15,9 @@ knitr::opts_chunk$set(
 ```
 
 
-**datagovindia** is a wrapper around >80,000 APIS of the Government of India's open
+**datagovindia** is a wrapper for around >130,000 APIS of the Government of India's open
 data platform [data.gov.in](https://data.gov.in/ogpl_apis). Here is a small guide
-to take you thorugh the package.  Primarily,the functionality is centered around
+to take you through the package.  Primarily,the functionality is centered around
 three aspects :  
 
 * **API discovery** - Finding the right API from all the available APIs
